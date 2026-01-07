@@ -30,7 +30,7 @@ export class ProductsListComponent implements OnInit {
 		this.productService.getProducts(this.limit, this.skip).subscribe((arg) => {
 			this.listOfProducts = arg.products;
 			console.log(this.listOfProducts);
-			this.applyFilter();
+			// this.applyFilter();
 		});
 	}
 

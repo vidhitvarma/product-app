@@ -1,23 +1,42 @@
+<header class="header">
+  <h2><span>E</span>-Retail</h2>
+</header>
+
 <div class="main">
-  <select [(ngModel)] = "osFilter" (change)="applyFilter()">
-    <option value="all">All</option>
-    <option value="ios">IOS</option>
-    <option value="others">Android</option>
-  </select>
-  <input type="number" placeholder="Min Price" [(ngModel)]="minimumPrice" (input)="applyFilter()"/>
-  <input type="number" placeholder="Max Price" [(ngModel)]="maximumPrice" (input)="applyFilter()"/>
+  <div class="category-box filter">
+    <p>Catergory:</p>
+    <select [(ngModel)] = "osFilter" (change)="applyFilter()">
+      <option value="all">All</option>
+      <option value="ios">IOS</option>
+      <option value="others">Android</option>
+    </select>
+  </div>
+  <div class="input-box filter">
+    <p class="price-range">Minimum Price : {{minimumPrice}}</p>
+    <input type="range" min="0" max="10000" step="100" [(ngModel)]="minimumPrice" (input)="applyFilter()"/>
+  </div>
+  
+  <div class="input-box filter">
+    <p class="price-range">Maximum Price : {{maximumPrice}}</p>
+    <input type="range" min="0" max="10000" step="100" [(ngModel)]="maximumPrice" (input)="applyFilter()"/>
+  </div>
+  
 </div>
 <button (click)="loadNext()" class="load_button">Load More</button>
-<div class="products"
-      *ngFor="let product of paginatedProducts">
-    <img [src] = "product.thumbnail"/>
-    <h3>{{product.title}}</h3>
-    <p>{{product.price}}</p>
 
-    <details>
-      <summary>Description</summary>
-      {{product.description}}
-    </details>
+<div class="display-grid">
+  <div class="products"
+        *ngFor="let product of listOfProducts">
+      <img [src] = "product.thumbnail"/>
+      <h3>{{product.title}}</h3>
+      <p>{{product.price}}</p>
+
+      <details>
+        <summary>Description</summary>
+        {{product.description}}
+      </details>
+  </div>
+
 </div>
 
 

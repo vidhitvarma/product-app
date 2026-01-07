@@ -1,23 +1,60 @@
+.header {
+	width: 100%;
+	background-color: rgb(189, 189, 189);
+	padding: 1rem;
+	margin-bottom: 1rem;
+}
+
+.header h2 {
+	color: white;
+	letter-spacing: 1px;
+	font-size: 2rem;
+	font-family: serif;
+}
+
+.header span {
+	color: rgb(179, 31, 31);
+}
+
 .main {
 	margin-bottom: 1rem;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-between;
 }
 
 .main select {
-	width: 33%;
 	background-color: rgb(255, 255, 255);
 }
 
+.price-range {
+	width: 200px;
+}
+
+.filter {
+	display: flex;
+	width: 100%;
+}
+
 input {
-	width: 32%;
+	width: 20%;
+}
+
+.display-grid {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 20px;
 }
 
 .products {
-	border: 1px solid #ddd;
-	padding: 10px;
-	margin-top: 10px;
+	border: 2px solid #ddd;
+	border-radius: 10px;
+	padding: 10px 20px;
+}
+
+.products h3 {
+	color: blue;
 }
 
 .load_button {
