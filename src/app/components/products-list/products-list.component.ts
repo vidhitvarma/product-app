@@ -18,7 +18,7 @@ export class ProductsListComponent implements OnInit {
 
 	minimumPrice = 0;
 	maximumPrice = 100000;
-	osFilter = 'all';
+	osFilter: 'all' | 'ios' | 'others' = 'all';
 
 	constructor(private productService: ProductService) {}
 
@@ -37,14 +37,14 @@ export class ProductsListComponent implements OnInit {
 	applyFilter() {
 		this.paginatedProducts = this.listOfProducts.filter((product) => {
 			const priceMatch = product.price >= this.minimumPrice && product.price <= this.maximumPrice;
-			const title = product.title.toLowerCase();
+			const brand = product.brand.toLowerCase();
 
-			const os =
+			const osMatch =
 				this.osFilter === 'all' ||
-				(this.osFilter === 'ios' && title.includes('iphone')) ||
-				(this.osFilter === 'android' && !title.includes('iphone'));
+				(this.osFilter === 'ios' && brand === 'Apple') ||
+				(this.osFilter === 'others' && brand !== 'Apple');
 
-			return priceMatch && os;
+			return priceMatch && osMatch;
 		});
 	}
 

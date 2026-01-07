@@ -2,15 +2,15 @@
   <select [(ngModel)] = "osFilter" (change)="applyFilter()">
     <option value="all">All</option>
     <option value="ios">IOS</option>
-    <option value="Android">Android</option>
+    <option value="others">Android</option>
   </select>
   <input type="number" placeholder="Min Price" [(ngModel)]="minimumPrice" (input)="applyFilter()"/>
   <input type="number" placeholder="Max Price" [(ngModel)]="maximumPrice" (input)="applyFilter()"/>
 </div>
-<button (click)="loadNext()">Load More</button>
+<button (click)="loadNext()" class="load_button">Load More</button>
 <div class="products"
       *ngFor="let product of paginatedProducts">
-    <img [src] = "product.thumbnail" width="100"/>
+    <img [src] = "product.thumbnail"/>
     <h3>{{product.title}}</h3>
     <p>{{product.price}}</p>
 
